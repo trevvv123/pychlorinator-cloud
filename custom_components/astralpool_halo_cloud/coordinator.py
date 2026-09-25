@@ -137,7 +137,6 @@ class HaloCloudCoordinator(DataUpdateCoordinator[ChlorinatorLiveData]):
     @callback
     def _maybe_ingest_acid(self) -> None:
         """Feed a fresh acid-dosing reading into the reservoir tracker."""
-        """Prevents the acid reading from being ingested until the Halo has supplied its pump rate."""
         dosing_today = self.client.data.acid_dosing_seconds_today
 
         if dosing_today is None or dosing_today == self._acid_last_secs:
